@@ -1,3 +1,24 @@
+window.onload = function() {
+    //Selectors
+        let newFileButton = document.querySelector(".newFileButton");
+        //NewFileDialog
+        let createNewFileButton = document.querySelector(".createNewFileButton");
+        let cancelNewFileButton = document.querySelector(".cancelNewFileButton");
+    //events
+    newFileButton.onclick = showNewFileDialog;
+    createNewFileButton.onclick = function(){
+        let drawMyFile = updateOfFile();
+        drawMyFile.drawFile(); 
+    };
+    cancelNewFileButton.onclick = hideNewFileDialog;
+
+
+}
+
+
+
+
+/*
 //selectors-----------------------------------------------------------------------------
 let newFileButton = document.getElementById("newFileButton");
 let exportButton = document.getElementById("exportButton");
@@ -51,3 +72,4 @@ pickTweet.addEventListener("change", updatePickTweet);
 //This Event-Listner will update Tweeter Icon
 twitterIcon.addEventListener("change", updatetwitterIcon);
 
+*/

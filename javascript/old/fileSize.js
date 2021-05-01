@@ -1,4 +1,4 @@
-var fileSize = {
+let fileSize = {
     A1: {
         width: {
             cm: 59.4,

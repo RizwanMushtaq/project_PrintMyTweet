@@ -1,0 +1,51 @@
+.appViewer {
+    display: none;
+    width: 100%;
+    height: 100vh;
+    grid-template-rows: 48px 1fr;
+}
+.actionbarDiv {
+    background-color:#edeff3;
+    grid-row: 1/2;
+    display: flex;
+    flex-direction: row;
+    justify-content:center;
+    align-items: center;
+}
+
+/*Add style for Canvas Div. It contains Canvas, property panels*/
+.workingArea {
+    grid-row: 2/3;
+    background-color: lightgreen;
+    overflow: hidden;
+    position: relative;
+}
+/*Add style for Property Panel*/
+.propertyPanel {
+    background-color: lightpink;
+    border: none;
+    position: absolute;
+    width: 280px;
+    height: 512px;
+    top: 0;
+    right: 0;
+}
+.propertyPanel .header {
+    border: none;
+    height: 32px;
+    background-color: lightsteelblue;
+    display: flex;
+    flex-direction: row;
+}
+.propertyPanel .header .dragMeArea {
+    border: solid;
+    width: 256px;
+}
+.propertyPanel .header .closeMe {
+    border: solid;
+    width: 24px;
+}
+.propertyPanel .body {
+    border: none;
+    background-color: lightyellow;
+}

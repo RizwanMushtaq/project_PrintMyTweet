@@ -1,3 +1,27 @@
+
+//This function will show newFileDialogBox to user
+function showNewFileDialog(){
+    let whiteBackground = document.querySelector(".whiteBackground");
+    let newFileDialogBox = document.querySelector(".newFileDialogBox");
+    whiteBackground.style.display = "block";
+    newFileDialogBox.style.display = "block";
+
+    let winWidth = window.innerWidth;
+    let winHeight = window.innerHeight;
+
+    newFileDialogBox.style.left = (winWidth/2)- 480/2 + "px";
+    newFileDialogBox.style.top = "150px";
+    
+}
+//This function will hide newFileDialogBox
+function hideNewFileDialog(){
+    let whiteBackground = document.querySelector(".whiteBackground");
+    let newFileDialogBox = document.querySelector(".newFileDialogBox");
+    whiteBackground.style.display = "none";
+    newFileDialogBox.style.display = "none";
+}
+//old---------------------------------------------------------------------------------------------------------------------------
+/*
 //This funcation update the selection of landscape or potrait icon, as user select any icon in new file dialog
 function updatedialogIcon(e) {
     let target = e.target;
@@ -157,3 +181,5 @@ function updateInputOnBlur() {
         potraitIcon.style.border = "0px none rgb(0, 0, 0)";
     } 
 }
+
+*/
