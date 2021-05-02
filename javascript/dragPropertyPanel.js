@@ -1,4 +1,4 @@
-//Function to be called when Element is draged
+//Function to be called when any propertyPanel is draged
 function dragPropertyPanel() {
 
     //Varaible to store x and y position before drag and after drag event

@@ -11,7 +11,6 @@ class File {
     }
     
     draw() {
-        console.log("In draw function of class");
         let myCanvas = document.querySelector(".myCanvas");
         let context = myCanvas.getContext("2d");        
         context.fillStyle = this.backgroundColor;

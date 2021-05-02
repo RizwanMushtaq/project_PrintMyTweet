@@ -1,3 +1,4 @@
+//Function to hide any property panel if it is displayed in Viewer
 function hideAlreadyOpenedPropertyPanel(){
     const propertyPanelAll = document.querySelectorAll(".propertyPanel");
     propertyPanelAll.forEach(function(item){

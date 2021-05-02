@@ -1,29 +1,49 @@
 window.onload = function() {
     //Selectors
-        let newFileButton = document.querySelector(".newFileButton");
+        const newFileButton = document.querySelector(".newFileButton");
         //NewFileDialog Buttons
-        let createNewFileButton = document.querySelector(".createNewFileButton");
-        let cancelNewFileButton = document.querySelector(".cancelNewFileButton");
+        const createNewFileButton = document.querySelector(".createNewFileButton");
+        const cancelNewFileButton = document.querySelector(".cancelNewFileButton");
         //ActionBar buttons
-        let size = document.querySelector(".size");
-        let background = document.querySelector(".background");
-        let text = document.querySelector(".text");
-        let twitterIcon = document.querySelector(".twitterIcon");
+        const home = document.querySelector(".home");
+        const save = document.querySelector(".save");
+        const download = document.querySelector(".download");
+        const size = document.querySelector(".size");
+        const background = document.querySelector(".background");
+        const text = document.querySelector(".text");
+        const twitterIcon = document.querySelector(".twitterIcon");
         //Property Panel
-        let propertyPanelAll = document.querySelectorAll(".propertyPanel");
-        let closeButtonAll = document.querySelectorAll(".closeButton");
+        const propertyPanelAll = document.querySelectorAll(".propertyPanel");
+        const closeButtonAll = document.querySelectorAll(".closeButton");
 
     //Make all the Property panels draggable:
     dragPropertyPanel();
+    const updateMyFile = updateOfFile();
     //events
     newFileButton.onclick = showNewFileDialog;
     //New File Dialog Buttons
     createNewFileButton.onclick = function(){
-        let drawMyFile = updateOfFile();
-        drawMyFile.drawFile(); 
+        const welcomePanel = document.querySelector(".welcomePanel");
+        welcomePanel.style.display = "none";
+        const appViewer = document.querySelector(".appViewer");
+        appViewer.style.display = "grid";
+        updateMyFile.showFileInViewer(); 
     };
     cancelNewFileButton.onclick = hideNewFileDialog;
     //ActionBar buttons
+    home.onclick = function(){
+        console.log("home button event triggered");
+        const welcomePanel = document.querySelector(".welcomePanel");
+        welcomePanel.style.display = "grid";
+        const appViewer = document.querySelector(".appViewer");
+        appViewer.style.display = "none";
+    }
+    save.onclick = function(){
+        console.log("save button event triggered");
+    }
+    download.onclick = function(){
+        console.log("download button event triggered");
+    }
     size.onclick = function(){
         hideAlreadyOpenedPropertyPanel();
         document.querySelector(".sizePropertyPanel").style.display = "block";
@@ -43,7 +63,7 @@ window.onload = function() {
     //Property Panel -> Close button for each property panel 
     closeButtonAll.forEach(function(item){
         item.onclick = function(e){
-            let target = e.target;
+            const target = e.target;
             target.parentElement.parentElement.parentElement.style.top = "0";
             target.parentElement.parentElement.parentElement.style.left = (window.innerWidth-target.parentElement.parentElement.parentElement.offsetWidth) + "px";
             target.parentElement.parentElement.parentElement.style.display = "none";
@@ -57,22 +77,22 @@ window.onload = function() {
 
 /*
 //selectors-----------------------------------------------------------------------------
-let newFileButton = document.getElementById("newFileButton");
-let exportButton = document.getElementById("exportButton");
+const newFileButton = document.getElementById("newFileButton");
+const exportButton = document.getElementById("exportButton");
 
 //NewFileDialog
-let createNewFileButton = document.getElementById("createNewFileButton");
-let cancelNewFileButton = document.getElementById("cancelNewFileButton");
-let shirtSize = document.querySelector("#shirtSize");
-let dialogIconContainer = document.getElementById("dialogIconContainer");
+const createNewFileButton = document.getElementById("createNewFileButton");
+const cancelNewFileButton = document.getElementById("cancelNewFileButton");
+const shirtSize = document.querySelector("#shirtSize");
+const dialogIconContainer = document.getElementById("dialogIconContainer");
 
 //ActionBar
-let backgroundColor = document.getElementById("backgroundColor");
-let backgroundShape = document.getElementById("backgroundShape");
-let backgroundShapeColor = document.getElementById("backgroundShapeColor");
-let textColor = document.getElementById("textColor");
-let pickTweet = document.getElementById("pickTweet");
-let twitterIcon = document.getElementById("twitterIcon");
+const backgroundColor = document.getElementById("backgroundColor");
+const backgroundShape = document.getElementById("backgroundShape");
+const backgroundShapeColor = document.getElementById("backgroundShapeColor");
+const textColor = document.getElementById("textColor");
+const pickTweet = document.getElementById("pickTweet");
+const twitterIcon = document.getElementById("twitterIcon");
 
 //events------------------------------------------------------------------------------
 //Window onload Event
