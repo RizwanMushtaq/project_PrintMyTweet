@@ -17,13 +17,14 @@
 .workingArea {
     grid-row: 2/3;
     background-color: lightgreen;
-    overflow: hidden;
+    overflow: auto;
     position: relative;
 }
 /*Add style for Property Panel*/
 .propertyPanel {
     background-color: lightpink;
     border: none;
+    display: none;
     position: absolute;
     width: 280px;
     height: 512px;
@@ -38,12 +39,17 @@
     flex-direction: row;
 }
 .propertyPanel .header .dragMeArea {
-    border: solid;
+    border: none;
     width: 256px;
 }
 .propertyPanel .header .closeMe {
-    border: solid;
-    width: 24px;
+    border: none;
+    width: 32px;
+}
+.propertyPanel .header .closeMe button {
+    border: none;
+    width: 32px;
+    height: 32px;
 }
 .propertyPanel .body {
     border: none;

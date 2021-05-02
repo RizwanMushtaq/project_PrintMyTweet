@@ -1,8 +1,5 @@
-//Make the Property panel graggable:
-dragElement();
-
 //Function to be called when Element is draged
-function dragElement() {
+function dragPropertyPanel() {
 
     //Varaible to store x and y position before drag and after drag event
     let pos1 = 0;
@@ -11,11 +8,13 @@ function dragElement() {
     let pos4 = 0;
     
     //Elements as variables
-    let dragMeArea = document.querySelector(".dragMeArea");
+    let dragMeAreaAll = document.querySelectorAll(".dragMeArea");
     let workingArea = document.querySelector(".workingArea");
-    let propertyPanel = document.querySelector(".propertyPanel")
+    let propertyPanelAll = document.querySelectorAll(".propertyPanel")
 
-    dragMeArea.onmousedown = dragMouseDown;
+    dragMeAreaAll.forEach(function(item){
+        item.onmousedown = dragMouseDown;
+    });
 
     function dragMouseDown(e) {
         e.preventDefault();
@@ -35,27 +34,31 @@ function dragElement() {
         pos3 = e.clientX;
         pos4 = e.clientY;
 
-        let defaultOffsetLeft =  window.innerWidth-propertyPanel.offsetWidth;
-        let defaultOffsetTop =  workingArea.offsetHeight-propertyPanel.offsetHeight;
+        propertyPanelAll.forEach(function(item){
+            let style = getComputedStyle(item);
+            if(style.display != "none"){
+                let defaultOffsetLeft =  window.innerWidth-item.offsetWidth;
+                let defaultOffsetTop =  workingArea.offsetHeight-item.offsetHeight;
 
-        //set the ement new position
+                //set the element new position
     
-        propertyPanel.style.top = (propertyPanel.offsetTop - pos2) + "px";
-        propertyPanel.style.left = (propertyPanel.offsetLeft - pos1) + "px";
+                item.style.top = (item.offsetTop - pos2) + "px";
+                item.style.left = (item.offsetLeft - pos1) + "px";
 
-        if(propertyPanel.offsetTop <= 0){
-            propertyPanel.style.top = 0;
-        }
-        if(propertyPanel.offsetLeft <= 0){
-            propertyPanel.style.left = 0;
-        }
-        if(propertyPanel.offsetLeft >= defaultOffsetLeft){
-            propertyPanel.style.left =  defaultOffsetLeft +"px";
-        }
-        if(propertyPanel.offsetTop >= defaultOffsetTop){
-            propertyPanel.style.top =  defaultOffsetTop +"px";
-        }
-        
+                if(item.offsetTop <= 0){
+                    item.style.top = 0;
+                }
+                if(item.offsetLeft <= 0){
+                    item.style.left = 0;
+                }
+                if(item.offsetLeft >= defaultOffsetLeft){
+                    item.style.left =  defaultOffsetLeft +"px";
+                }
+                if(item.offsetTop >= defaultOffsetTop){
+                    item.style.top =  defaultOffsetTop +"px";
+                }
+            }
+        });    
     }
 
     function closeDragElement(e) {

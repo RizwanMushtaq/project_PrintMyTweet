@@ -30,6 +30,7 @@
     -->
 
     <script src="javascript/file.js" defer></script>
+    <script src="javascript/propertyPanel.js" defer></script>
     <script src="javascript/updateOfFile.js"></script>
     <script src="javascript/newFileDialog.js" defer></script>
     <script src="javascript/dragPropertyPanel.js" defer></script>
@@ -71,7 +72,7 @@
                 <button class="download" type="button">Download</button>
             </div>
             <div class="Type2">
-                <button class="printSize" type="button">Print Size</button>
+                <button class="size" type="button">Size</button>
                 <button class="background" type="button">Background</button>
                 <button class="text" type="button">Text</button>
                 <button class="twitterIcon" type="button">Twitter Icon</button>
@@ -83,17 +84,58 @@
             <div class="myCanvasDiv">
                 <canvas class="myCanvas"></canvas>
             </div>
-            <!--Start of Print Size Property Panel-->
-            <div class="printSizePropertyPanel propertyPanel">
+            <!--Start of Size Property Panel-->
+            <div class="sizePropertyPanel propertyPanel">
                 <div class="header">
-                    <div class="dragMeArea">printSizePropertyPanel</div>
-                    <div class="closeMe">x</div>
+                    <div class="dragMeArea">SizePropertyPanel</div>
+                    <div class="closeMe">
+                        <button class="closeButton" type="button">x</button>
+                    </div>
                 </div>
                 <div class="body">
                     add all properties here
                 </div>
             </div>
-            <!--Start of Print Size Property Panel-->
+            <!--End of Size Property Panel-->
+            <!--Start of Background Property Panel-->
+            <div class="backgroundPropertyPanel propertyPanel">
+                <div class="header">
+                    <div class="dragMeArea">BackgroundPropertyPanel</div>
+                    <div class="closeMe">
+                        <button class="closeButton" type="button">x</button>
+                    </div>
+                </div>
+                <div class="body">
+                    add all properties here
+                </div>
+            </div>
+            <!--End of background Property Panel-->
+            <!--Start of Text Property Panel-->
+            <div class="textPropertyPanel propertyPanel">
+                <div class="header">
+                    <div class="dragMeArea">TextPropertyPanel</div>
+                    <div class="closeMe">
+                        <button class="closeButton" type="button">x</button>
+                    </div>
+                </div>
+                <div class="body">
+                    add all properties here
+                </div>
+            </div>
+            <!--End of Text Property Panel-->
+            <!--Start of Twitter Icon Property Panel-->
+            <div class="twitterIconPropertyPanel propertyPanel">
+                <div class="header">
+                    <div class="dragMeArea">TwitterIconPropertyPanel</div>
+                    <div class="closeMe">
+                        <button class="closeButton" type="button">x</button>
+                    </div>
+                </div>
+                <div class="body">
+                    add all properties here
+                </div>
+            </div>
+            <!--End of Twitter icon Property Panel-->
 
         </div>
         <!--End of CanvasDiv-->
