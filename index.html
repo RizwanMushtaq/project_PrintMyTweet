@@ -72,7 +72,7 @@
                 <button class="download" type="button">Download</button>
             </div>
             <div class="Type2">
-                <button class="size" type="button">Size</button>
+                <button class="canvasSize" type="button">Canvas Size</button>
                 <button class="background" type="button">Background</button>
                 <button class="text" type="button">Text</button>
                 <button class="twitterIcon" type="button">Twitter Icon</button>
@@ -81,11 +81,10 @@
         <!--End of Action Bar-->
         <!--Start of workingArea Div-->
         <div class="workingArea">
-            <div class="myCanvasDiv">
-                <canvas class="myCanvas"></canvas>
-            </div>
+            
+            <canvas class="myCanvas"></canvas>
             <!--Start of Size Property Panel-->
-            <div class="sizePropertyPanel propertyPanel">
+            <div class="canvasSizePropertyPanel propertyPanel">
                 <div class="header">
                     <div class="dragMeArea">SizePropertyPanel</div>
                     <div class="closeMe">
@@ -93,7 +92,14 @@
                     </div>
                 </div>
                 <div class="body">
-                    add all properties here
+                    <div>
+                        <label for="canvasWidth">Width (cm)</label>
+                        <input type="number" name="canvasWidth" class="canvasWidth" value="12">
+                    </div>
+                    <div>
+                        <label for="canvasHeight">Height (cm)</label>
+                        <input type="number" name="canvasHeight" class="canvasHeight" value="8">
+                    </div>
                 </div>
             </div>
             <!--End of Size Property Panel-->
@@ -106,7 +112,21 @@
                     </div>
                 </div>
                 <div class="body">
-                    add all properties here
+                    <div>
+                        <label for="backgroundColor">Color</label>
+                        <input type="color" name="" class="backgroundColor" value="#F1F5FE">
+                    </div>
+                    <div>
+                        <label for="backgroundShape">Shape</label>
+                        <select name="" class="backgroundShape" value="none">
+                            <option value="none" selected="selected">none</option>
+                            <option value="circle">circle</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="backgroundShapeColor">Shape Color</label>
+                        <input type="color" name="" class="backgroundShapeColor" value="#8AB3FF">
+                    </div>
                 </div>
             </div>
             <!--End of background Property Panel-->
@@ -119,7 +139,24 @@
                     </div>
                 </div>
                 <div class="body">
-                    add all properties here
+                    <div>
+                        <textarea name="tweetText" class="tweetText" cols="30" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <label for="textColor">Color</label>
+                        <input type="color" name="" class="textColor" value="#007bff">
+                    </div>
+                    <div>
+                        <label for="textSize">Size</label>
+                        <input type="number" name="textSize" class="textSize" value="12">
+                    </div>
+                    <div>
+                        <label for="fontFamily">Font Family</label>
+                        <select name="fontFamily" class="fontFamily" value="none">
+                            <option value="timesNewRoman" selected="selected">Times New Roman</option>
+                            <option value="arial">Arial</option>
+                        </select>
+                    </div>
                 </div>
             </div>
             <!--End of Text Property Panel-->
@@ -132,7 +169,10 @@
                     </div>
                 </div>
                 <div class="body">
-                    add all properties here
+                    <div>
+                        <label for="twitterIcon">Twitter Icon</label>
+                        <input type="checkbox" name="" class="twitterIcon">
+                    </div>
                 </div>
             </div>
             <!--End of Twitter icon Property Panel-->

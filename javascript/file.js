@@ -1,5 +1,6 @@
 class File {
-    constructor(width, height, backgroundColor, backgroundShape, backgroundShapeColor, textColor, pickTweet, twitterIcon) {
+    constructor(name, width, height, backgroundColor, backgroundShape, backgroundShapeColor, textColor, pickTweet, twitterIcon) {
+        this.name = name;
         this.width = width;
         this.height = height;
         this.backgroundColor = backgroundColor;
@@ -12,7 +13,9 @@ class File {
     
     draw() {
         let myCanvas = document.querySelector(".myCanvas");
-        let context = myCanvas.getContext("2d");        
+        let context = myCanvas.getContext("2d");
+        myCanvas.width = this.width;
+        myCanvas.height = this.height;        
         context.fillStyle = this.backgroundColor;
         context.fillRect(0,0,this.width,this.height);
     };

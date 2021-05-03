@@ -1,67 +1,51 @@
 window.onload = function() {
-    //Selectors
-        const newFileButton = document.querySelector(".newFileButton");
-        //NewFileDialog Buttons
-        const createNewFileButton = document.querySelector(".createNewFileButton");
-        const cancelNewFileButton = document.querySelector(".cancelNewFileButton");
-        //ActionBar buttons
-        const home = document.querySelector(".home");
-        const save = document.querySelector(".save");
-        const download = document.querySelector(".download");
-        const size = document.querySelector(".size");
-        const background = document.querySelector(".background");
-        const text = document.querySelector(".text");
-        const twitterIcon = document.querySelector(".twitterIcon");
-        //Property Panel
-        const propertyPanelAll = document.querySelectorAll(".propertyPanel");
-        const closeButtonAll = document.querySelectorAll(".closeButton");
-
     //Make all the Property panels draggable:
     dragPropertyPanel();
+    //Function call to create closure for new file Object
     const updateMyFile = updateOfFile();
-    //events
-    newFileButton.onclick = showNewFileDialog;
-    //New File Dialog Buttons
-    createNewFileButton.onclick = function(){
-        const welcomePanel = document.querySelector(".welcomePanel");
-        welcomePanel.style.display = "none";
-        const appViewer = document.querySelector(".appViewer");
-        appViewer.style.display = "grid";
+    //events--------------------------------------------------------------------------------------------------------------
+    //New File Button in WP
+    document.querySelector(".newFileButton").onclick = showNewFileDialog;
+    //Create File Dialog Buttons
+    document.querySelector(".createNewFileButton").onclick = function(){
+        document.querySelector(".welcomePanel").style.display = "none";
+        document.querySelector(".appViewer").style.display = "grid";
         updateMyFile.showFileInViewer(); 
     };
-    cancelNewFileButton.onclick = hideNewFileDialog;
+    //Cancel New File Dialog Button
+    document.querySelector(".cancelNewFileButton").onclick = hideNewFileDialog;
     //ActionBar buttons
-    home.onclick = function(){
+    document.querySelector(".home").onclick = function(){
         console.log("home button event triggered");
         const welcomePanel = document.querySelector(".welcomePanel");
         welcomePanel.style.display = "grid";
         const appViewer = document.querySelector(".appViewer");
         appViewer.style.display = "none";
     }
-    save.onclick = function(){
+    document.querySelector(".save").onclick = function(){
         console.log("save button event triggered");
     }
-    download.onclick = function(){
+    document.querySelector(".download").onclick = function(){
         console.log("download button event triggered");
     }
-    size.onclick = function(){
+    document.querySelector(".canvasSize").onclick = function(){
         hideAlreadyOpenedPropertyPanel();
-        document.querySelector(".sizePropertyPanel").style.display = "block";
+        document.querySelector(".canvasSizePropertyPanel").style.display = "block";
     }
-    background.onclick = function(){
+    document.querySelector(".background").onclick = function(){
         hideAlreadyOpenedPropertyPanel();
         document.querySelector(".backgroundPropertyPanel").style.display = "block";
     }
-    text.onclick = function(){
+    document.querySelector(".text").onclick = function(){
         hideAlreadyOpenedPropertyPanel();
         document.querySelector(".textPropertyPanel").style.display = "block";
     }
-    twitterIcon.onclick = function(){
+    document.querySelector(".twitterIcon").onclick = function(){
         hideAlreadyOpenedPropertyPanel();
         document.querySelector(".twitterIconPropertyPanel").style.display = "block";
     }
     //Property Panel -> Close button for each property panel 
-    closeButtonAll.forEach(function(item){
+    document.querySelectorAll(".closeButton").forEach(function(item){
         item.onclick = function(e){
             const target = e.target;
             target.parentElement.parentElement.parentElement.style.top = "0";
@@ -69,64 +53,18 @@ window.onload = function() {
             target.parentElement.parentElement.parentElement.style.display = "none";
         }
     });
+    //Properties in Property Panels
+    //Canvas Size property Panel
+    document.querySelector(".canvasWidth").onblur = () => {
+        updateMyFile.updateWidth();
+    } 
+    document.querySelector(".canvasHeight").onblur = () => {
+        updateMyFile.updateHeight();
+    } 
+    //Canvas Background property Panel
+    document.querySelector(".backgroundColor").addEventListener("input", () => {
+        console.log("Hi");
+        updateMyFile.updateBackgroundColor();
+    });
 
 }
-
-
-
-
-/*
-//selectors-----------------------------------------------------------------------------
-const newFileButton = document.getElementById("newFileButton");
-const exportButton = document.getElementById("exportButton");
-
-//NewFileDialog
-const createNewFileButton = document.getElementById("createNewFileButton");
-const cancelNewFileButton = document.getElementById("cancelNewFileButton");
-const shirtSize = document.querySelector("#shirtSize");
-const dialogIconContainer = document.getElementById("dialogIconContainer");
-
-//ActionBar
-const backgroundColor = document.getElementById("backgroundColor");
-const backgroundShape = document.getElementById("backgroundShape");
-const backgroundShapeColor = document.getElementById("backgroundShapeColor");
-const textColor = document.getElementById("textColor");
-const pickTweet = document.getElementById("pickTweet");
-const twitterIcon = document.getElementById("twitterIcon");
-
-//events------------------------------------------------------------------------------
-//Window onload Event
-window.onload = function() {
-    //Disable all input fields in ActionBar except NewFile Input Field
-    diableActionBar();
-}
-//This Event-Listner will show New File Dialog 
-newFileButton.addEventListener("click", showNewFileDialog);
-//This Event-Listner will export File
-exportButton.addEventListener("click", exportMyImage); 
-
-//NewFileDialog
-//This Event-Listner will create new Canvas 
-createNewFileButton.addEventListener("click", createNewCanvas);
-//This Event-Listner will cancel new Canvas 
-cancelNewFileButton.addEventListener("click", cancelNewCanvas);
-//This Event-Listner will update focus on the landscape or potrait Icon
-dialogIconContainer.addEventListener("click", updatedialogIcon);
-//Updating Print Size in drop down list
-shirtSize.addEventListener("change",updateSize);
-
-//ActionBar
-//This Event-Listner will update the background color of canvas
-backgroundColor.addEventListener("input", updateBackgroundColor); 
-//This Event-Listner will update the background shape of canvas
-backgroundShape.addEventListener("change", updateBackgroundShape);
-//This Event-Listner will update the background shape Color
-backgroundShapeColor.addEventListener("input", updateBackgroundShapeColor);
-//This Event-Listner will update Text Color
-textColor.addEventListener("input", updateTextColor);
-//This Event-Listner will update Tweet from list
-pickTweet.addEventListener("change", updatePickTweet);
-//This Event-Listner will update Tweeter Icon
-twitterIcon.addEventListener("change", updatetwitterIcon);
-
-*/
