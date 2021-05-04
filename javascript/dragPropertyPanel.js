@@ -14,6 +14,7 @@ function dragPropertyPanel() {
 
     dragMeAreaAll.forEach(function(item){
         item.onmousedown = dragMouseDown;
+        item.style.cursor = "move";
     });
 
     function dragMouseDown(e) {
