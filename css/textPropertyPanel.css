@@ -1,0 +1,13 @@
+.tweetTextAreaDiv{
+    background-color: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding: 4px;
+    border: grey solid;
+    cursor: move;
+}
+.tweetTextArea{
+    background: transparent;
+    padding: 4px;
+}

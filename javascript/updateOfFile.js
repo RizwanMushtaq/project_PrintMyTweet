@@ -1,5 +1,5 @@
 function updateOfFile(){
-    let myFile = new File("MyTweetPrint","567","368","#ffffff","none","#8AB3FF","#007bff","Hi",false);
+    let myFile = new File("MyTweetPrint","567","378","#ffffff","none","#8AB3FF","#007bff","Hi",false);
     let oldWidth = myFile.width;
     let oldHeight = myFile.height;
     let circles; //variable to hold circles comimg from function saveCirclesinArray() defined in backgroundShapes.js
@@ -46,6 +46,27 @@ function updateOfFile(){
         myFile.backgroundShapeColor = document.querySelector(".backgroundShapeColor").value;
         redrawCanvas();
     }
+    updateTweetText = function(){
+        console.log("In updateTweetText function");
+        let tweetTextAreaDiv = document.createElement("div");
+        tweetTextAreaDiv.setAttribute("class", "tweetTextAreaDiv");
+        let tweetTextArea = document.createElement("textarea");
+        tweetTextArea.setAttribute("class", "tweetTextArea");
+        tweetTextAreaDiv.appendChild(tweetTextArea);
+        document.querySelector(".workingArea").appendChild(tweetTextAreaDiv);
+
+        //Call drag function for tweetTextAreaDiv element
+        dragTweetTextArea(tweetTextAreaDiv, document.querySelector(".myCanvas"));
+        
+        //What to do onblur event is fired
+        tweetTextArea.onblur = function(){
+            if(tweetTextArea.value === ""){
+                tweetTextAreaDiv.remove();
+            }else{
+                console.log(tweetTextArea.value);
+            }
+        }
+    }
     //This function will draw canvas after clearing old canvas and drawing new one on top of that
     function redrawCanvas(){
         let myCanvas = document.querySelector(".myCanvas");
@@ -69,6 +90,7 @@ function updateOfFile(){
         updateHeight,
         updateBackgroundColor,
         updateBackgroundShape,
-        updateBackgroundShapeColor
+        updateBackgroundShapeColor,
+        updateTweetText
     };
 }

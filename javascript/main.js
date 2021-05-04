@@ -71,5 +71,9 @@ window.onload = function() {
     document.querySelector(".backgroundShapeColor").addEventListener("input", () => {
         updateMyFile.updateBackgroundShapeColor();
     });
-
+    //Canvas Text property Panel
+    document.querySelector(".tweetText").onclick = () => {
+        console.log("TweetText button pressed");
+        updateMyFile.updateTweetText();
+    }
 }
