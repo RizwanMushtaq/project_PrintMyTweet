@@ -63,8 +63,13 @@ window.onload = function() {
     } 
     //Canvas Background property Panel
     document.querySelector(".backgroundColor").addEventListener("input", () => {
-        console.log("Hi");
         updateMyFile.updateBackgroundColor();
+    });
+    document.querySelector(".backgroundShape").onchange = () => {
+        updateMyFile.updateBackgroundShape();
+    }
+    document.querySelector(".backgroundShapeColor").addEventListener("input", () => {
+        updateMyFile.updateBackgroundShapeColor();
     });
 
 }

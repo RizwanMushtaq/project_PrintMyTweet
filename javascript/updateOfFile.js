@@ -1,26 +1,49 @@
 function updateOfFile(){
-    let myFile = new File("MyTweetPrint","600","200","#F1F5FE","none","#8AB3FF","#007bff","Hi",false);
+    let myFile = new File("MyTweetPrint","567","368","#ffffff","none","#8AB3FF","#007bff","Hi",false);
     let oldWidth = myFile.width;
     let oldHeight = myFile.height;
+    let circles; //variable to hold circles comimg from function saveCirclesinArray() defined in backgroundShapes.js
     console.log(myFile);
 
     showFileInViewer = () => {
         hideNewFileDialog();
         myFile.draw();
     }
+     /*
+    Converting cm to pixals
+    let dpi = 96; //let dots per pixal value
+    let widthPixal = Math.round((96/2.54) * parseFloat(widthLabel.value)); 
+    let heightPixal = Math.round((96/2.54) * parseFloat(heightLabel.value));
+    */
     updateWidth = function() {
-        myFile.width = document.querySelector(".canvasWidth").value;
+        myFile.width = Math.round( (96/2.54) * parseFloat(document.querySelector(".canvasWidth").value) );
+        console.log(myFile.width);
         redrawCanvas();
         oldWidth = myFile.width;
     }
     updateHeight = () => {
-        myFile.height = document.querySelector(".canvasHeight").value;
+        myFile.height = Math.round( (96/2.54) * parseFloat(document.querySelector(".canvasHeight").value) );
+        console.log(myFile.height);
         redrawCanvas();
         oldHeight = myFile.height;
     }
     updateBackgroundColor = function(){
-        console.log("In update bg Color");
         myFile.backgroundColor = document.querySelector(".backgroundColor").value;
+        redrawCanvas();
+    }
+    updateBackgroundShape = function(){
+        myFile.backgroundShape = document.querySelector(".backgroundShape").value;
+        console.log(myFile.backgroundShape);
+        if(myFile.backgroundShape === "none"){
+            //do nothing
+        } else if(myFile.backgroundShape === "circle"){
+            circles = saveCirclesinArray(myFile.width,myFile.height);
+        }
+        console.log(circles);
+        redrawCanvas();
+    }
+    updateBackgroundShapeColor = function(){
+        myFile.backgroundShapeColor = document.querySelector(".backgroundShapeColor").value;
         redrawCanvas();
     }
     //This function will draw canvas after clearing old canvas and drawing new one on top of that
@@ -32,12 +55,20 @@ function updateOfFile(){
         myCanvas.height = myFile.height; 
         context.fillStyle = myFile.backgroundColor;
         context.fillRect(0,0,myFile.width,myFile.height);
+        //Drawing background shape in Canvas
+        if(myFile.backgroundShape === "none"){
+            //do nothing
+        }else if(myFile.backgroundShape === "circle"){
+            drawCircles(circles, myFile.backgroundShapeColor);
+        }
     }
 
     return {
         showFileInViewer,
         updateWidth,
         updateHeight,
-        updateBackgroundColor
+        updateBackgroundColor,
+        updateBackgroundShape,
+        updateBackgroundShapeColor
     };
 }
