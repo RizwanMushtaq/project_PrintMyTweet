@@ -20,6 +20,9 @@
     overflow: auto;
     position: relative;
 }
+.myCanvas{
+    margin: 0px;
+}
 /*Add style for Property Panel*/
 .propertyPanel {
     background-color: lightpink;

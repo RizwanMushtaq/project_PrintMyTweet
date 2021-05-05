@@ -1,13 +1,14 @@
-.tweetTextAreaDiv{
-    background-color: none;
-    position: absolute;
-    left: 0;
-    top: 0;
-    padding: 4px;
-    border: grey solid;
-    cursor: move;
-}
 .tweetTextArea{
-    background: transparent;
+    /*background: none;*/
     padding: 4px;
+    color: #007bff;
+    font-size: 16px;
+    font-family: Arial;
+
+    width: 280px;
+    height: 256px;
+    resize: none;
+}
+.textPostionX, .textPostionY {
+    width: 96px;
 }

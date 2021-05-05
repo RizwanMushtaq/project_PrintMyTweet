@@ -69,12 +69,12 @@
     <div class="appViewer">
         <!--Start of Action Bar-->
         <div class="actionbarDiv">
-            <div class="Type1">
+            <div class="type1">
                 <button class="home" type="button">Home</button>
                 <button class="save" type="button">Save</button>
                 <button class="download" type="button">Download</button>
             </div>
-            <div class="Type2">
+            <div class="type2">
                 <button class="canvasSize" type="button">Canvas Size</button>
                 <button class="background" type="button">Background</button>
                 <button class="text" type="button">Text</button>
@@ -85,7 +85,7 @@
         <!--Start of workingArea Div-->
         <div class="workingArea">
             
-            <canvas class="myCanvas"></canvas>
+            <canvas class="myCanvas" width="567" height="378"></canvas>
             <!--Start of Size Property Panel-->
             <div class="canvasSizePropertyPanel propertyPanel">
                 <div class="header">
@@ -141,10 +141,26 @@
                         <button class="closeButton" type="button">x</button>
                     </div>
                 </div>
-                <div class="body">
+                <div class="textPropertyPanelBody body">
                     <div>
-                        <label for="tweetText">Add Text</label>
-                        <button class="tweetText">Add Text</button>
+                        <!--
+                            <label for="tweetText">Add Text</label>
+                            <button class="tweetText">Add Text</button>
+                        -->
+                        <textarea name="tweetTextArea" class="tweetTextArea" cols="30" rows="10"></textarea>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="textPosition">Position:</label>
+                        </div>
+                        <div>
+                            <label for="X">X</label>
+                            <input type="number" name="X" class="textPostionX" value="">
+                        </div>
+                        <div>
+                            <label for="Y">Y</label>
+                            <input type="number" name="Y" class="textPostionY" value="">
+                        </div>
                     </div>
                     <div>
                         <label for="textColor">Color</label>
@@ -152,13 +168,17 @@
                     </div>
                     <div>
                         <label for="textSize">Size</label>
-                        <input type="number" name="textSize" class="textSize" value="12">
+                        <input type="number" name="textSize" class="fontSize" value="16">
                     </div>
                     <div>
                         <label for="fontFamily">Font Family</label>
                         <select name="fontFamily" class="fontFamily" value="none">
-                            <option value="timesNewRoman" selected="selected">Times New Roman</option>
-                            <option value="arial">Arial</option>
+                            <option value="Arial" selected="selected">Arial</option>
+                            <option value="Verdana">Verdana</option>
+                            <option value="Helvetica">Helvetica</option>
+                            <option value="Times New Roman">Times New Roman</option>
+                            <option value="Georgia">Georgia</option>
+                            <option value="Garamond">Garamond</option>
                         </select>
                     </div>
                 </div>
@@ -174,8 +194,29 @@
                 </div>
                 <div class="body">
                     <div>
-                        <label for="twitterIcon">Twitter Icon</label>
-                        <input type="checkbox" name="" class="twitterIcon">
+                        <label for="icon">Icon</label>
+                        <input type="checkbox" name="" class="icon" unchecked>
+                    </div>
+                    <div>
+                        <label for="iconSize">Size</label>
+                        <select name="iconSize" class="iconSize" value="none">
+                            <option value="small" >Small</option>
+                            <option value="medium" selected="selected">Medium</option>
+                            <option value="large">Large</option>
+                        </select>
+                    </div>
+                    <div>
+                        <div>
+                            <label for="iconPosition">Position:</label>
+                        </div>
+                        <div>
+                            <label for="X">X</label>
+                            <input type="number" name="X" class="iconPostionX" value="">
+                        </div>
+                        <div>
+                            <label for="Y">Y</label>
+                            <input type="number" name="Y" class="iconPostionY" value="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -185,65 +226,14 @@
         <!--End of CanvasDiv-->
     </div>
 <!--End of App Viewer-->     
-        
-        
-        <!--
-            <div id="canvasBackground">
-                <p>
-                    <label for="backgroundColor">Background Color</label>
-                    <input type="color" name="" id="backgroundColor" value="#F1F5FE">
-                </p>
-                <p>
-                    <label for="backgroundShape">Background Shape</label>
-                    <select name="" id="backgroundShape" value="none">
-                        <option value="none" selected="selected">none</option>
-                        <option value="circle">circle</option>
-                        <option value="square">square</option>
-                        <option value="triangle">triangle</option>
-                    </select>
-                </p>
-                <p>
-                    <label for="backgroundShapeColor">Background Shape Color</label>
-                    <input type="color" name="" id="backgroundShapeColor" value="#8AB3FF">
-                </p>
-            </div>    
-            <div id="canvasText">
-                <p>
-                    <label for="textColor">Text Color</label>
-                    <input type="color" name="" id="textColor" value="#007bff">
-                </p>
-                <p>
-                    <label for="pickTweet">Pick Tweet</label>
-                    <select name="" id="pickTweet">
-                        <option value="This is by-defualt Tweet for Testing:)" selected="selected">This is by-defualt Tweet for Testing:)</option>
-                        <option value="This is second Tweet for Testing:">This is second Tweet for Testing:</option>
-                    </select>
-                </p>
-                <p>
-                    <label for="twitterIcon">Twitter Icon</label>
-                    <input type="checkbox" name="" id="twitterIcon" checked>
-                </p>
-            </div>
-            <div id="exportFile">
-                <button id="exportButton">
-                    <a href="" id="exportLink" download type="button">
-                        <i class="fas fa-download fa-5x"></i>
-                    </a>
-                </button>
-            </div>
-            End of Action Bar-->
-        
-
-       
-
 
     <!--Start of New File Dialog Box-->
     <div class="whiteBackground">
         <div class="newFileDialogBox">
             <div class="dialogHeader">Print My Tweet</div>
             <div class="dialogBody">
-                <label for="printName">Shirt Size</label>
-                <input type="text" name="printName" class="printName">
+                <label for="printName">Name</label>
+                <input type="text" name="printName" class="printName" value="My Tweet">
             </div> 
             <div class="dialogFooter">
                 <button class="createNewFileButton">Create</button>
@@ -252,53 +242,7 @@
         </div>
     </div>
     <!--End Of New File Dialog Box-->
-
-
-
-    <!--Start of New File Dialog Box
-    <div id="whiteBackground">
-        <div id="newFileDialogBox">
-            <div id="dialogHeader">Select Shirt Size</div>
-            <div id="dialogBody">
-                <div id="dialogBodyRow2">
-                    <label for="shirtSizeWidth">Width</label>
-                    <input type="number" required id="widthLabel" step="0.01" onblur="updateInputOnBlur()">
-                    <label for="shirtSizeWidth">cm</label>
-                </div>
-                <div id="dialogBodyRow2">
-                    <label for="shirtSizeHeight">Height</label>
-                    <input type="number" required id="heightLabel" step="0.01" onblur="updateInputOnBlur()">
-                    <label for="shirtSizeHeight">cm</label>
-                </div>
-                <div id="dialogBodyRow1">
-                    <label for="shirtSize">Shirt Size</label>
-                    <select name="" id="shirtSize">
-                        <option value="A1">A1</option>
-                        <option value="A2">A2</option>
-                        <option value="A3">A3</option>
-                        <option value="A4">A4</option>
-                        <option value="A5" selected="selected">A5</option>
-                        <option value="A6">A6</option>
-                        <option value="A7">A7</option>
-                        <option value="Custom">Custom</option>
-                    </select>
-                    <div id="dialogIconContainer">
-                        <button id="landscapeIcon">
-                            <image id="landscapeIconImage" src="images/landscapeIcon.png"></image>
-                        </button>
-                        <button id="potraitIcon">
-                            <image id="potraitIconImage" src="images/potraitIcon.png"></image>
-                        </button>
-                    </div>
-                </div>
-            </div> 
-            <div id="dialogFooter">
-                <button id="createNewFileButton">Create</button>
-                <button id="cancelNewFileButton">Cancel</button>
-            </div>
-        </div>
-    </div>
-    End Of New File Dialog Box-->
+    
 
 </body>
 </html>

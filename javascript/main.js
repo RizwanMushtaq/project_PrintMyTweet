@@ -8,9 +8,14 @@ window.onload = function() {
     document.querySelector(".newFileButton").onclick = showNewFileDialog;
     //Create File Dialog Buttons
     document.querySelector(".createNewFileButton").onclick = function(){
-        document.querySelector(".welcomePanel").style.display = "none";
-        document.querySelector(".appViewer").style.display = "grid";
-        updateMyFile.showFileInViewer(); 
+        let printName = document.querySelector(".printName").value;
+        if(printName == "" || printName.trim() == ""){
+            alert("Please enter name");
+        }else{
+            document.querySelector(".welcomePanel").style.display = "none";
+            document.querySelector(".appViewer").style.display = "grid";
+            updateMyFile.showFileInViewer();
+        }
     };
     //Cancel New File Dialog Button
     document.querySelector(".cancelNewFileButton").onclick = hideNewFileDialog;
@@ -39,10 +44,12 @@ window.onload = function() {
     document.querySelector(".text").onclick = function(){
         hideAlreadyOpenedPropertyPanel();
         document.querySelector(".textPropertyPanel").style.display = "block";
+        updateMyFile.updateText();
     }
     document.querySelector(".twitterIcon").onclick = function(){
         hideAlreadyOpenedPropertyPanel();
         document.querySelector(".twitterIconPropertyPanel").style.display = "block";
+        updateMyFile.updateIconPanel();
     }
     //Property Panel -> Close button for each property panel 
     document.querySelectorAll(".closeButton").forEach(function(item){
@@ -55,10 +62,10 @@ window.onload = function() {
     });
     //Properties in Property Panels
     //Canvas Size property Panel
-    document.querySelector(".canvasWidth").onblur = () => {
+    document.querySelector(".canvasWidth").onchange = () => {
         updateMyFile.updateWidth();
     } 
-    document.querySelector(".canvasHeight").onblur = () => {
+    document.querySelector(".canvasHeight").onchange = () => {
         updateMyFile.updateHeight();
     } 
     //Canvas Background property Panel
@@ -72,8 +79,45 @@ window.onload = function() {
         updateMyFile.updateBackgroundShapeColor();
     });
     //Canvas Text property Panel
-    document.querySelector(".tweetText").onclick = () => {
-        console.log("TweetText button pressed");
-        updateMyFile.updateTweetText();
+    document.querySelector(".tweetTextArea").oninput = () => {
+        console.log("TweetTextArea input added by user");
+        updateMyFile.updateTweetTextArea();
+    }
+    document.querySelector(".textPostionX").oninput = () => {
+        console.log("textPostionX updated");
+        updateMyFile.updateTextPostionX();
+    }
+    document.querySelector(".textPostionY").oninput = () => {
+        console.log("textPostionY updated");
+        updateMyFile.updateTextPostionY();
+    }
+    document.querySelector(".textColor").addEventListener("input", () => {
+        console.log("TextColor Input updated");
+        updateMyFile.updateTextColor();
+    });
+    document.querySelector(".fontSize").onchange = () => {
+        console.log("FontSize Input updated");
+        updateMyFile.updateFontSize();
+    }
+    document.querySelector(".fontFamily").onchange = () => {
+        console.log("FontFamily Input updated");
+        updateMyFile.updateFontFamily();
+    }
+    //Canvas Twitter Icon property Panel
+    document.querySelector(".icon").onchange = () => {
+        console.log("Twiter Icon check box Input updated");
+        updateMyFile.updateIcon();
+    }
+    document.querySelector(".iconSize").onchange = () => {
+        console.log("Twiter Icon Size Input updated");
+        updateMyFile.updateIconSize();
+    }
+    document.querySelector(".iconPostionX").oninput = () => {
+        console.log("iconPostionX updated");
+        updateMyFile.updateIconPostionX();
+    }
+    document.querySelector(".iconPostionY").oninput = () => {
+        console.log("IconPostionY updated");
+        updateMyFile.updateIconPostionY();
     }
 }
