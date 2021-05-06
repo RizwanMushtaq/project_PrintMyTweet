@@ -11,6 +11,7 @@ function updateOfFile(){
         //Updating File
         myFile.name = document.querySelector(".printName").value;
         myFile.width = document.querySelector(".myCanvas").width;
+        console.log(myFile.width);
         myFile.height = document.querySelector(".myCanvas").height;
         myFile.backgroundColor = document.querySelector(".backgroundColor").value;
         myFile.backgroundShape = document.querySelector(".backgroundShape").value;
@@ -33,13 +34,15 @@ function updateOfFile(){
     let heightPixal = Math.round((96/2.54) * parseFloat(heightLabel.value));
     */
     updateWidth = function() {
-        myFile.width = Math.round( (96/2.54) * parseFloat(document.querySelector(".canvasWidth").value) );
+        //myFile.width = Math.round( (96/2.54) * parseFloat(document.querySelector(".canvasWidth").value) );
+        myFile.width = document.querySelector(".canvasWidth").value;
         console.log(myFile.width);
         redrawCanvas();
         oldWidth = myFile.width;
     }
     updateHeight = () => {
-        myFile.height = Math.round( (96/2.54) * parseFloat(document.querySelector(".canvasHeight").value) );
+        //myFile.height = Math.round( (96/2.54) * parseFloat(document.querySelector(".canvasHeight").value) );
+        myFile.height = document.querySelector(".canvasHeight").value;
         console.log(myFile.height);
         redrawCanvas();
         oldHeight = myFile.height;
