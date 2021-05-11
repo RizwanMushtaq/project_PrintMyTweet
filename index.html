@@ -23,6 +23,7 @@
     <link rel="stylesheet" href="css/appViewer.css">
     <link rel="stylesheet" href="css/newFileDialog.css">
     <link rel="stylesheet" href="css/textPropertyPanel.css">
+    <link rel="stylesheet" href="css/exportDialog.css">
 
     <!--Inserting css files
     <link rel="stylesheet" href="css/main.css">
@@ -35,6 +36,7 @@
     <script src="javascript/propertyPanel.js" defer></script>
     <script src="javascript/updateOfFile.js"></script>
     <script src="javascript/newFileDialog.js" defer></script>
+    <script src="javascript/exportDialog.js" defer></script>
     <script src="javascript/dragPropertyPanel.js" defer></script>
     <script src="javascript/dragTextArea.js" defer></script>
     <script src="javascript/main.js" defer></script>
@@ -69,10 +71,13 @@
     <div class="appViewer">
         <!--Start of Action Bar-->
         <div class="actionbarDiv">
+            <div class="type0">
+                <input type="text" name="" id="" class="fileNameActionBar">
+            </div>
             <div class="type1">
                 <button class="home" type="button">Home</button>
                 <button class="save" type="button">Save</button>
-                <button class="download" type="button">Download</button>
+                <button class="export" type="button">Export</button>
             </div>
             <div class="type2">
                 <button class="canvasSize" type="button">Canvas Size</button>
@@ -243,6 +248,27 @@
     </div>
     <!--End Of New File Dialog Box-->
     
+    <!--Start of Export Dialog Box-->
+    <div class="whiteBackgroundExportDialogBox">
+        <div class="exportDialogBox">
+            <div class="dialogHeaderExportDialogBox">Export Image</div>
+            <div class="dialogBodyExportDialogBox">
+                <input type="radio" class="pngInput" name="export" value="png" checked>
+                <label for="png">PNG</label><br>
+                <input type="radio" class="jpegInput" name="export" value="jpeg">
+                <label for="jpeg">JPEG</label><br>
+            </div> 
+            <div class="dialogFooterExportDialogBox">
+                <button class="exportDialogBoxButton">
+                    <a href="" class="exportLink" download type="button">
+                        Export
+                    </a>
+                </button>
+                <button class="cancelExportDialogBoxButton">Cancel</button>
+            </div>
+        </div>
+    </div>
+    <!--End Of Export Dialog Box-->
 
 </body>
 </html>

@@ -25,6 +25,7 @@ function updateOfFile(){
         myFile.icon = document.querySelector(".icon").checked;
         myFile.iconSize = document.querySelector(".iconSize").value;
         console.log(myFile);
+        document.querySelector(".fileNameActionBar").value = document.querySelector(".printName").value;
         redrawCanvas();
     }
      /*
@@ -33,6 +34,17 @@ function updateOfFile(){
     let widthPixal = Math.round((96/2.54) * parseFloat(widthLabel.value)); 
     let heightPixal = Math.round((96/2.54) * parseFloat(heightLabel.value));
     */
+    updateFileNameOnBlur = function() {
+        console.log("In update File Name On Blur function");
+        let newName = document.querySelector(".fileNameActionBar").value;
+        if(newName == "" || newName.trim() == ""){
+            //alert("Please enter name");
+            document.querySelector(".fileNameActionBar").value = myFile.name;
+        }else{
+            myFile.name = document.querySelector(".fileNameActionBar").value;
+        }
+        console.log(myFile.name);
+    }
     updateWidth = function() {
         //myFile.width = Math.round( (96/2.54) * parseFloat(document.querySelector(".canvasWidth").value) );
         myFile.width = document.querySelector(".canvasWidth").value;
@@ -136,6 +148,18 @@ function updateOfFile(){
         myFile.iconPositionY = document.querySelector(".iconPostionY").value;
         redrawCanvas();
     }
+    //Function to export image to local drive
+    exportImage = function(){
+        console.log("In export Image function");
+        let myCanvas = document.querySelector(".myCanvas");
+        let context = myCanvas.getContext("2d");
+        let image = new Image();
+        //By Default It will save png image
+        image.src = myCanvas.toDataURL();
+        //Using a element to get link of image and export it in local drive 
+        let exportLink = document.querySelector(".exportLink");
+        exportLink.href = image.src;
+    }
     //This function will draw canvas after clearing old canvas and drawing new one on top of that
     function redrawCanvas(){
         let myCanvas = document.querySelector(".myCanvas");
@@ -174,12 +198,13 @@ function updateOfFile(){
 
         } else{
             //remove icon image
-            console.log("Don't Insert twitter Image");
+            //console.log("Don't Insert twitter Image");
         }
     }
 
     return {
         showFileInViewer,
+        updateFileNameOnBlur,
         updateWidth,
         updateHeight,
         updateBackgroundColor,
@@ -196,6 +221,7 @@ function updateOfFile(){
         updateIcon,
         updateIconSize,
         updateIconPostionX,
-        updateIconPostionY
+        updateIconPostionY,
+        exportImage
     };
 }

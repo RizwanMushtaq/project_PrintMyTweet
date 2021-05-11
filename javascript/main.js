@@ -6,19 +6,30 @@ window.onload = function() {
     //events--------------------------------------------------------------------------------------------------------------
     //New File Button in WP
     document.querySelector(".newFileButton").onclick = showNewFileDialog;
-    //Create File Dialog Buttons
-    document.querySelector(".createNewFileButton").onclick = function(){
-        let printName = document.querySelector(".printName").value;
-        if(printName == "" || printName.trim() == ""){
-            alert("Please enter name");
+    //New File Dialog Name Input Field
+    document.querySelector(".printName").onblur = function(){
+        console.log("name input in new file dialog is onblur now");
+        let newName = document.querySelector(".printName").value;
+        if(newName == "" || newName.trim() == ""){
+            //alert("Please enter name");
+            document.querySelector(".printName").value = "My Tweet";
         }else{
-            document.querySelector(".welcomePanel").style.display = "none";
-            document.querySelector(".appViewer").style.display = "grid";
-            updateMyFile.showFileInViewer();
+            //do nothing
         }
+    }
+    //Create New File Dialog Buttons
+    document.querySelector(".createNewFileButton").onclick = function(){
+        document.querySelector(".welcomePanel").style.display = "none";
+        document.querySelector(".appViewer").style.display = "grid";
+        updateMyFile.showFileInViewer();
     };
     //Cancel New File Dialog Button
     document.querySelector(".cancelNewFileButton").onclick = hideNewFileDialog;
+    //ActionBar Name Input Field
+    document.querySelector(".fileNameActionBar").onblur = function(){
+        console.log("name input in action bar is onblur now");
+        updateMyFile.updateFileNameOnBlur();
+    }
     //ActionBar buttons
     document.querySelector(".home").onclick = function(){
         console.log("home button event triggered");
@@ -30,9 +41,18 @@ window.onload = function() {
     document.querySelector(".save").onclick = function(){
         console.log("save button event triggered");
     }
-    document.querySelector(".download").onclick = function(){
-        console.log("download button event triggered");
+    document.querySelector(".export").onclick = function(){
+        console.log("export button event triggered");
+        showExportDialog();
     }
+    //Export Dialog Box Button
+    document.querySelector(".exportDialogBoxButton").onclick = function(){
+        console.log("export button in Export Dialog Box event triggered");
+        updateMyFile.exportImage(); 
+    }
+    //Cancel Export Dialog Box Button
+    document.querySelector(".cancelExportDialogBoxButton").onclick = hideExportDialog;
+
     document.querySelector(".canvasSize").onclick = function(){
         hideAlreadyOpenedPropertyPanel();
         document.querySelector(".canvasSizePropertyPanel").style.display = "block";
