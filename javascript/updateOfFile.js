@@ -10,9 +10,8 @@ function updateOfFile(){
         
         //Updating File
         myFile.name = document.querySelector(".printName").value;
-        myFile.width = document.querySelector(".myCanvas").width;
-        console.log(myFile.width);
-        myFile.height = document.querySelector(".myCanvas").height;
+        myFile.width = document.querySelector(".canvasWidth").value;
+        myFile.height = document.querySelector(".canvasHeight").value;
         myFile.backgroundColor = document.querySelector(".backgroundColor").value;
         myFile.backgroundShape = document.querySelector(".backgroundShape").value;
         myFile.backgroundShapeColor = document.querySelector(".backgroundShapeColor").value;
@@ -24,6 +23,8 @@ function updateOfFile(){
         myFile.fontFamily = document.querySelector(".fontFamily").value;
         myFile.icon = document.querySelector(".icon").checked;
         myFile.iconSize = document.querySelector(".iconSize").value;
+        myFile.iconPositionX = document.querySelector(".iconPostionX").value;
+        myFile.iconPositionY = document.querySelector(".iconPostionY").value;
         console.log(myFile);
         document.querySelector(".fileNameActionBar").value = document.querySelector(".printName").value;
         redrawCanvas();
@@ -34,6 +35,10 @@ function updateOfFile(){
     let widthPixal = Math.round((96/2.54) * parseFloat(widthLabel.value)); 
     let heightPixal = Math.round((96/2.54) * parseFloat(heightLabel.value));
     */
+    updateSaveFile = function() {
+        console.log("In update save file function");
+        localStorage.setItem(myFile.name, JSON.stringify(myFile));
+    }
     updateFileNameOnBlur = function() {
         console.log("In update File Name On Blur function");
         let newName = document.querySelector(".fileNameActionBar").value;
@@ -154,8 +159,12 @@ function updateOfFile(){
         let myCanvas = document.querySelector(".myCanvas");
         let context = myCanvas.getContext("2d");
         let image = new Image();
-        //By Default It will save png image
-        image.src = myCanvas.toDataURL();
+        if(document.querySelector(".pngInput").checked){
+            //By Default It will save png image
+            image.src = myCanvas.toDataURL('image/png');
+        }else if(document.querySelector(".jpegInput").checked){
+            image.src = myCanvas.toDataURL('image/jpeg');
+        }
         //Using a element to get link of image and export it in local drive 
         let exportLink = document.querySelector(".exportLink");
         exportLink.href = image.src;
@@ -203,6 +212,7 @@ function updateOfFile(){
     }
 
     return {
+        updateSaveFile,
         showFileInViewer,
         updateFileNameOnBlur,
         updateWidth,

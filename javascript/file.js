@@ -22,14 +22,4 @@ class File {
         this.iconPositionY = iconPositionY;
     }
     
-    /*
-    draw() {
-        let myCanvas = document.querySelector(".myCanvas");
-        let context = myCanvas.getContext("2d");
-        myCanvas.width = this.width;
-        myCanvas.height = this.height;        
-        context.fillStyle = this.backgroundColor;
-        context.fillRect(0,0,this.width,this.height);
-    };
-    */
 }
