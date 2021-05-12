@@ -35,10 +35,13 @@ function updateOfFile(){
     let widthPixal = Math.round((96/2.54) * parseFloat(widthLabel.value)); 
     let heightPixal = Math.round((96/2.54) * parseFloat(heightLabel.value));
     */
+   /*
     updateSaveFile = function() {
         console.log("In update save file function");
-        localStorage.setItem(myFile.name, JSON.stringify(myFile));
-    }
+        myFilesInLocalStorage.push(myFile);
+        console.log(myFilesInLocalStorage);
+        localStorage.setItem("myFilesInLocalStorage", JSON.stringify(myFilesInLocalStorage));
+    }*/
     updateFileNameOnBlur = function() {
         console.log("In update File Name On Blur function");
         let newName = document.querySelector(".fileNameActionBar").value;
@@ -212,7 +215,6 @@ function updateOfFile(){
     }
 
     return {
-        updateSaveFile,
         showFileInViewer,
         updateFileNameOnBlur,
         updateWidth,

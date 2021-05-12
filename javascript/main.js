@@ -38,11 +38,12 @@ window.onload = function() {
         const appViewer = document.querySelector(".appViewer");
         appViewer.style.display = "none";
     }
+    /*
     document.querySelector(".save").onclick = function(){
         console.log("save button event triggered");
-        updateMyFile.updateSaveFile();
 
     }
+    */
     document.querySelector(".export").onclick = function(){
         console.log("export button event triggered");
         showExportDialog();
