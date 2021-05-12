@@ -25,19 +25,19 @@ function hideNewFileDialog(){
 function resetAllInputs(){
     //Reset All properties inputs to default Properties
     document.querySelector(".printName").value = "My Tweet";
-    document.querySelector(".canvasWidth").value = "720";
-    document.querySelector(".canvasHeight").value = "480";
+    document.querySelector(".canvasWidth").value = 720;
+    document.querySelector(".canvasHeight").value = 480;
     document.querySelector(".backgroundColor").value = "#ffffff";
     document.querySelector(".backgroundShape").value = "none";
     document.querySelector(".backgroundShapeColor").value = "#8AB3FF";
     document.querySelector(".tweetTextArea").value = "";
-    //document.querySelector(".textPostionX").value = 180; //It is calculated dynamically 
-    //document.querySelector(".textPostionY").value = 120; //It is calculated dynamically
+    document.querySelector(".textPostionX").value = 180; //It is calculated dynamically when opening property panel 
+    document.querySelector(".textPostionY").value = 120; //It is calculated dynamically when opening property panel
     document.querySelector(".textColor").value = "#007BFF";
-    document.querySelector(".fontSize").value = "16";
+    document.querySelector(".fontSize").value = 16;
     document.querySelector(".fontFamily").value = "Arial";
     document.querySelector(".icon").checked = false;
     document.querySelector(".iconSize").value = "medium";
-    //document.querySelector(".iconPostionX").value = 540; //It is calculated dynamically
-    //document.querySelector(".iconPostionY").value = 120; //It is calculated dynamically
+    document.querySelector(".iconPostionX").value = 540; //It is calculated dynamically when opening property panel
+    document.querySelector(".iconPostionY").value = 120; //It is calculated dynamically when opening property panel
 }

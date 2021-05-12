@@ -29,19 +29,7 @@ function updateOfFile(){
         document.querySelector(".fileNameActionBar").value = document.querySelector(".printName").value;
         redrawCanvas();
     }
-     /*
-    Converting cm to pixals
-    let dpi = 96; //let dots per pixal value
-    let widthPixal = Math.round((96/2.54) * parseFloat(widthLabel.value)); 
-    let heightPixal = Math.round((96/2.54) * parseFloat(heightLabel.value));
-    */
-   /*
-    updateSaveFile = function() {
-        console.log("In update save file function");
-        myFilesInLocalStorage.push(myFile);
-        console.log(myFilesInLocalStorage);
-        localStorage.setItem("myFilesInLocalStorage", JSON.stringify(myFilesInLocalStorage));
-    }*/
+   
     updateFileNameOnBlur = function() {
         console.log("In update File Name On Blur function");
         let newName = document.querySelector(".fileNameActionBar").value;
@@ -171,6 +159,7 @@ function updateOfFile(){
         //Using a element to get link of image and export it in local drive 
         let exportLink = document.querySelector(".exportLink");
         exportLink.href = image.src;
+        hideExportDialog();
     }
     //This function will draw canvas after clearing old canvas and drawing new one on top of that
     function redrawCanvas(){

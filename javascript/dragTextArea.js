@@ -1,3 +1,6 @@
+//This file code is not used in this Version so far, May be It will be needed in Future
+
+/*
 //Function to be called when Tweet text Area is draged
 function dragTweetTextArea(dragMeArea, myCanvas) {
 
@@ -57,3 +60,5 @@ function dragTweetTextArea(dragMeArea, myCanvas) {
     }
 
 }
+
+*/
