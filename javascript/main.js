@@ -72,9 +72,16 @@ window.onload = function() {
     document.querySelectorAll(".closeButton").forEach(function(item){
         item.onclick = function(e){
             const target = e.target;
-            target.parentElement.parentElement.parentElement.style.top = "0";
-            target.parentElement.parentElement.parentElement.style.left = (window.innerWidth-target.parentElement.parentElement.parentElement.offsetWidth) + "px";
-            target.parentElement.parentElement.parentElement.style.display = "none";
+            console.log(target.className);
+            if(target.className === "closeButton"){
+                target.parentElement.parentElement.parentElement.style.top = "0";
+                target.parentElement.parentElement.parentElement.style.left = (window.innerWidth-target.parentElement.parentElement.parentElement.offsetWidth) + "px";
+                target.parentElement.parentElement.parentElement.style.display = "none";
+            } else if(target.className === "fas fa-times"){
+                target.parentElement.parentElement.parentElement.parentElement.style.top = "0";
+                target.parentElement.parentElement.parentElement.parentElement.style.left = (window.innerWidth-target.parentElement.parentElement.parentElement.offsetWidth) + "px";
+                target.parentElement.parentElement.parentElement.parentElement.style.display = "none";
+            }  
         }
     });
     //Properties in Property Panels

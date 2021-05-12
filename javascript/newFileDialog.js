@@ -34,7 +34,7 @@ function resetAllInputs(){
     document.querySelector(".textPostionX").value = 180; //It is calculated dynamically when opening property panel 
     document.querySelector(".textPostionY").value = 120; //It is calculated dynamically when opening property panel
     document.querySelector(".textColor").value = "#007BFF";
-    document.querySelector(".fontSize").value = 16;
+    document.querySelector(".fontSize").value = 36;
     document.querySelector(".fontFamily").value = "Arial";
     document.querySelector(".icon").checked = false;
     document.querySelector(".iconSize").value = "medium";

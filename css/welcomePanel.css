@@ -14,7 +14,6 @@
     grid-template-rows: repeat(20, 1fr);
     row-gap: 8px;
     background-color: #c1c8c7;
-    
 }
 .leftPanel p {
     grid-column: 1/21;
@@ -26,13 +25,13 @@
 }
 .leftPanel button {
     color: white;
-    background-color: #252b31;
+    background-color: #053579;
     border: none;
     outline: none;
 }
 .leftPanel button:hover {
     color: white;
-    background-color: #053579;
+    background-color: #094dac;
 }
 .newFileButton {
     grid-column: 4/17;

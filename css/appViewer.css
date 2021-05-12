@@ -12,11 +12,40 @@
     justify-content:center;
     align-items: center;
 }
-
+.actionbarDiv div {
+    padding: 0 32px 0 0;
+}
+.actionbarDiv div button {
+    background-color: #053579;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    width: 96px;
+    height: 32px;
+    font-size: 16px;
+}
+.actionbarDiv div button:hover {
+    background-color: #094dac;
+}
+.actionbarDiv div input {
+    background-color: #c1c8c7;
+    border: none;
+    border-radius: 4px;
+    width: 148px;
+    height: 32px;
+    font-size: 18px;
+    padding-left: 4px;
+}
+.actionbarDiv div input:focus {
+    background-color: white;
+    border: none;
+    outline: none;
+    
+}
 /*Add style for Canvas Div. It contains Canvas, property panels*/
 .workingArea {
     grid-row: 2/3;
-    background-color: lightgreen;
+    background-color: #c1c8c7;
     overflow: auto;
     position: relative;
 }
@@ -25,7 +54,7 @@
 }
 /*Add style for Property Panel*/
 .propertyPanel {
-    background-color: lightpink;
+    background-color: #edeff3;
     border: none;
     display: none;
     position: absolute;
@@ -44,17 +73,70 @@
 .propertyPanel .header .dragMeArea {
     border: none;
     width: 256px;
+    display: flex;
+    align-items: center; /*aligning content on cross axis*/
+    padding-left: 4px;
 }
 .propertyPanel .header .closeMe {
     border: none;
     width: 32px;
 }
 .propertyPanel .header .closeMe button {
-    border: none;
+    border: solid 1px;
     width: 32px;
     height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .propertyPanel .body {
     border: none;
-    background-color: lightyellow;
+    background-color: #edeff3;
+    font-size: 16px;
+}
+.propertyPanel .body div {
+    margin: 4px 4px 0 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+/*
+.propertyPanel .body div input {
+    width: 56px;
+}*/
+.propertyPanel .body div .icon {
+    width: 56px;
+    height: 19.2px;
+}
+.positionInput {
+    margin-left: 8px;
+}
+
+input[type="number"] {
+	-webkit-appearance: none;
+	border: none;
+    outline: none;
+	width: 56px;
+    height: 24px;
+    padding-left: 4px;
+}
+
+select {
+    border: none;
+    outline: none;
+    width: 112px;
+    height: 24px;
+}
+
+input[type="color"] {
+	-webkit-appearance: none;
+	border: none;
+	width: 24px;
+	height: 24px;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
 }

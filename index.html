@@ -79,7 +79,9 @@
                 <div class="header">
                     <div class="dragMeArea">SizePropertyPanel</div>
                     <div class="closeMe">
-                        <button class="closeButton" type="button">x</button>
+                        <button class="closeButton" type="button">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="body">
@@ -99,7 +101,9 @@
                 <div class="header">
                     <div class="dragMeArea">BackgroundPropertyPanel</div>
                     <div class="closeMe">
-                        <button class="closeButton" type="button">x</button>
+                        <button class="closeButton" type="button">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="body">
@@ -126,28 +130,24 @@
                 <div class="header">
                     <div class="dragMeArea">TextPropertyPanel</div>
                     <div class="closeMe">
-                        <button class="closeButton" type="button">x</button>
+                        <button class="closeButton" type="button">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="textPropertyPanelBody body">
-                    <div>
-                        <!--
-                            <label for="tweetText">Add Text</label>
-                            <button class="tweetText">Add Text</button>
-                        -->
+                    <div class="tweetTextAreaDiv">
                         <textarea name="tweetTextArea" class="tweetTextArea" cols="30" rows="10"></textarea>
                     </div>
                     <div>
+                        <label for="textPosition">Position:</label>
                         <div>
-                            <label for="textPosition">Position:</label>
+                            <label for="X">x</label>
+                            <input type="number" name="X" class="textPostionX positionInput" value="">
                         </div>
                         <div>
-                            <label for="X">X</label>
-                            <input type="number" name="X" class="textPostionX" value="">
-                        </div>
-                        <div>
-                            <label for="Y">Y</label>
-                            <input type="number" name="Y" class="textPostionY" value="">
+                            <label for="Y">y</label>
+                            <input type="number" name="Y" class="textPostionY positionInput" value="">
                         </div>
                     </div>
                     <div>
@@ -156,7 +156,7 @@
                     </div>
                     <div>
                         <label for="textSize">Size</label>
-                        <input type="number" name="textSize" class="fontSize" value="16">
+                        <input type="number" name="textSize" class="fontSize" value="36">
                     </div>
                     <div>
                         <label for="fontFamily">Font Family</label>
@@ -177,7 +177,9 @@
                 <div class="header">
                     <div class="dragMeArea">TwitterIconPropertyPanel</div>
                     <div class="closeMe">
-                        <button class="closeButton" type="button">x</button>
+                        <button class="closeButton" type="button">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                 </div>
                 <div class="body">
@@ -194,16 +196,14 @@
                         </select>
                     </div>
                     <div>
+                        <label for="iconPosition">Position:</label>
                         <div>
-                            <label for="iconPosition">Position:</label>
+                            <label for="X">x</label>
+                            <input type="number" name="X" class="iconPostionX positionInput" value="">
                         </div>
                         <div>
-                            <label for="X">X</label>
-                            <input type="number" name="X" class="iconPostionX" value="">
-                        </div>
-                        <div>
-                            <label for="Y">Y</label>
-                            <input type="number" name="Y" class="iconPostionY" value="">
+                            <label for="Y">y</label>
+                            <input type="number" name="Y" class="iconPostionY positionInput" value="">
                         </div>
                     </div>
                 </div>

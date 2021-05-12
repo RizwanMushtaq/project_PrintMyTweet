@@ -20,7 +20,7 @@
 }
 /*Dialog Header*/
 .dialogHeaderExportDialogBox {
-    background-color: blue;
+    background-color: #053579;
     color: white;
     font-size: 20px;
     padding: 10px;
@@ -30,7 +30,7 @@
 .dialogBodyExportDialogBox {
     background-color: white;
     color: black;
-    font-size: 14px;
+    font-size: 16px;
     padding: 10px;
     margin: 0px 4px 0px 4px;
 }
@@ -42,10 +42,13 @@
     margin: 0px 4px 4px 4px;
 }
 .dialogFooterExportDialogBox button{
-    background-color: blue;
+    background-color: #053579;
     color: white;
     padding: 5px;
     border: none;
+}
+.dialogFooterExportDialogBox button:hover{
+    background-color: #094dac;
 }
 .exportLink {
     color: white;
